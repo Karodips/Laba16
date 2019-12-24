@@ -7,7 +7,8 @@ int main() {
 	setlocale(LC_ALL, "Russian");
 	int i, n;
 	cin >> n;
-	int* arr = new int[n];
+	
+	int* arr = new int[n*2];
 	for (i = 0; i < n; i++) cin >> arr[i];
 	for (i = 0; i < n; i++) cout << arr[i] << " ";
 	cout << endl;
