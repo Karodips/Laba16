@@ -5,17 +5,22 @@ using namespace std;
 
 int main() {
 	setlocale(LC_ALL, "Russian");
-	int i, n;
+	int i, n, j, kopiya;
 	cin >> n;
-	int* arr = new int[n];
+	kopiya = n * 2;
+	int* arr = new int[kopiya];
+	for (i = 0; i < kopiya; i++) arr[i] = 0;
 	for (i = 0; i < n; i++) cin >> arr[i];
 	for (i = 0; i < n; i++) cout << arr[i] << " ";
 	cout << endl;
-	for (i = 1; i < n ; i++) {
-		if (arr[i] > 0) { 
-			arr[i - 1] = 0;
-		}
+	for (i = 0; i < n; i++) {
+		if (arr[i] > 0) {
+			for (j = kopiya - 1; j > i; j--) arr[j] = arr[j - 1];
 
+			arr[i] = 0;
+			n++;
+			i++;
+		}
 	}
 	for (i = 0; i < n; i++) cout << arr[i] << " ";
 	cout << endl;
